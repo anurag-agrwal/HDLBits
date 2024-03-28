@@ -51,6 +51,20 @@ module top_module(
             else if (next_state == S6) data[5] <= in;
             else if (next_state == S7) data[6] <= in;
             else if (next_state == S8) data[7] <= in;
+	end
+	
+	always@(posedge clk)
+        begin
+            case(next_state)
+                S1: data[0] = in;
+                S2: data[1] = in;
+                S3: data[2] = in;
+                S4: data[3] = in;
+                S5: data[4] = in;
+                S6: data[5] = in;
+                S7: data[6] = in;
+                S8: data[7] = in;
+            endcase
         end
     
     assign out_byte = (state == DONE) ? data : 8'b0;
