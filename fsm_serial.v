@@ -7,7 +7,7 @@ module top_module(
     reg [3:0] state, next_state;
     parameter IDLE=0, S1=1, S2=2, S3=3, S4=4, S5=5, S6=6, S7=7, S8=8, START=9, DONE=10, WAIT=11;
     
-    always@(posedge clk, posedge reset)
+    always@(posedge clk)
         begin
             if(reset) state <= IDLE;
             else state <= next_state;
